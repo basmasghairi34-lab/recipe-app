@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GourmetBox - Recipe Manager</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&family=Playfair+Display:wght@700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body data-theme="dark">
+    <button class="theme-toggle" id="theme-toggle" title="Toggle Theme">
+        <span id="theme-icon">🌙</span>
+    </button>
+    <div class="container">
+        <header>
+            <h1>CookSmart</h1>
+            <p>Chef at Home 🍳 </p>
+
+        </header>
+
+        <main>
+            <!-- AI Section -->
+            <section class="ai-section">
+                <div class="card ai-card">
+                    <h2>✨ AI Chef Assistant</h2>
+                    <p>Tell me what ingredients you have, and I'll create something special.</p>
+                    <div class="input-group">
+                        <input type="text" id="ai-ingredients" placeholder="e.g. Avocado, Honey, Lime...">
+                        <button id="suggest-btn">Magic ✨</button>
+                    </div>
+                    <div id="ai-result" class="hidden">
+                        <div class="suggestion-content">
+                            <!-- AI suggestions will be injected here as pre-formatted text -->
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <div class="content-grid">
+                <!-- Add Recipe Form -->
+                <section class="add-recipe">
+                    <div class="card">
+                        <h2> 👩🏻‍🍳 Add New Recipe</h2>
+                        <form id="recipe-form">
+                            <div class="form-group">
+                                <label for="name">Recipe Name</label>
+                                <input type="text" id="name" required placeholder="e.g. Classic Margherita Pizza">
+                            </div>
+                            <div class="form-group">
+                                <label for="ingredients">Ingredients (comma separated)</label>
+                                <input type="text" id="ingredients" required
+                                    placeholder="e.g. Flour, Yeast, Tomato Sauce">
+                            </div>
+                            <div class="form-group">
+                                <label for="steps">Preparation Steps</label>
+                                <textarea id="steps" required placeholder="Step by step instructions..."></textarea>
+                            </div>
+                            <button type="submit" class="primary-btn">Save Recipe</button>
+                        </form>
+                    </div>
+                </section>
+
+                <!-- Recipes List -->
+                <section class="recipes-list">
+                    <h2>My Recipes</h2>
+                    <div id="recipes-container" class="grid">
+                        <!-- Recipe cards will be injected here -->
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>

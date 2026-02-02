@@ -1,0 +1,366 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,700;1,700&display=swap');
+
+:root {
+    /* Base Modern Sophisticated Palette */
+    --brand-primary: #FF5F6D;
+    --brand-secondary: #FFC371;
+    --accent: #2ecc71;
+    --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    --radius-lg: 24px;
+    --radius-md: 16px;
+
+    /* DARK THEME (Default) */
+    --bg-main: #0f172a;
+    --bg-card: rgba(30, 41, 59, 0.7);
+    --text-main: #f1f5f9;
+    --text-soft: #94a3b8;
+    --white: #1e293b;
+    --glass: rgba(30, 41, 59, 0.5);
+    --border: rgba(255, 255, 255, 0.05);
+    --shadow-soft: 0 8px 30px rgba(0, 0, 0, 0.2);
+    --shadow-rich: 0 15px 45px rgba(255, 95, 109, 0.1);
+    --input-bg: #1e293b;
+}
+
+[data-theme="light"] {
+    /* LIGHT THEME Overrides */
+    --bg-main: #fcfaf8;
+    --bg-card: rgba(255, 255, 255, 0.85);
+    --text-main: #2c3e50;
+    --text-soft: #7f8c8d;
+    --white: #ffffff;
+    --glass: rgba(255, 255, 255, 0.85);
+    --border: rgba(0, 0, 0, 0.05);
+    --shadow-soft: 0 8px 30px rgba(0, 0, 0, 0.04);
+    --shadow-rich: 0 15px 45px rgba(255, 95, 109, 0.15);
+    --input-bg: #ffffff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background: var(--bg-main);
+    color: var(--text-main);
+    line-height: 1.7;
+    overflow-x: hidden;
+    transition: background-color 0.4s ease, color 0.4s ease;
+    background-image:
+        radial-gradient(at 0% 0%, rgba(255, 95, 109, 0.05) 0px, transparent 50%),
+        radial-gradient(at 100% 100%, rgba(255, 195, 113, 0.05) 0px, transparent 50%);
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 3rem 1.5rem;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 4rem;
+    animation: fadeInDown 1s ease;
+}
+
+header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 4rem;
+    background: linear-gradient(135deg, var(--brand-primary), var(--brand-secondary));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: -1px;
+    margin-bottom: 0.5rem;
+}
+
+header p {
+    color: var(--text-soft);
+    font-size: 1.2rem;
+    font-weight: 300;
+    font-style: italic;
+}
+
+/* Glass Cards */
+.card {
+    background: var(--bg-card);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 2.5rem;
+    box-shadow: var(--shadow-soft);
+    transition: var(--transition);
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-rich);
+}
+
+h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+/* AI Section */
+.ai-section {
+    margin-bottom: 4rem;
+}
+
+.ai-card {
+    background: var(--bg-card);
+}
+
+.input-group {
+    display: flex;
+    gap: 0.8rem;
+    background: var(--input-bg);
+    padding: 0.5rem;
+    border-radius: var(--radius-md);
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.02);
+    border: 1px solid var(--border);
+}
+
+input,
+textarea {
+    width: 100%;
+    padding: 1rem 1.5rem;
+    border: none;
+    border-radius: var(--radius-md);
+    font-family: inherit;
+    font-size: 1rem;
+    background: transparent;
+    color: var(--text-main);
+    outline: none;
+}
+
+textarea {
+    background: var(--input-bg);
+    border: 1px solid var(--border);
+    height: 150px;
+    resize: none;
+    margin-top: 0.5rem;
+}
+
+/* Theme Toggle */
+.theme-toggle {
+    position: fixed;
+    top: 2rem;
+    right: 2rem;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    color: var(--text-main);
+    padding: 0.8rem;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    cursor: pointer;
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+    transition: var(--transition);
+}
+
+.theme-toggle:hover {
+    transform: rotate(30deg) scale(1.1);
+}
+
+/* Buttons */
+button {
+    cursor: pointer;
+    border: none;
+    border-radius: var(--radius-md);
+    padding: 1rem 2rem;
+    font-weight: 700;
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: var(--transition);
+}
+
+#suggest-btn {
+    background: var(--text-main);
+    color: var(--bg-main);
+}
+
+#suggest-btn:hover {
+    background: #000;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.primary-btn {
+    background: linear-gradient(135deg, var(--brand-primary), var(--brand-secondary));
+    color: white;
+    margin-top: 2rem;
+}
+
+.primary-btn:hover {
+    opacity: 0.9;
+    transform: scale(1.02);
+}
+
+.secondary-btn {
+    background: var(--accent);
+    color: white;
+}
+
+.secondary-btn:hover {
+    filter: brightness(1.1);
+}
+
+/* Layout Responsiveness */
+.content-grid {
+    display: grid;
+    grid-template-columns: 380px 1fr;
+    gap: 3rem;
+    align-items: start;
+}
+
+@media (max-width: 1024px) {
+    .container {
+        padding: 2rem 1rem;
+    }
+
+    header h1 {
+        font-size: 3rem;
+    }
+
+    .content-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+}
+
+@media (max-width: 600px) {
+    header h1 {
+        font-size: 2.5rem;
+    }
+
+    .card {
+        padding: 1.5rem;
+    }
+
+    .input-group {
+        flex-direction: column;
+    }
+
+    button {
+        width: 100%;
+    }
+
+    .grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.recipes-list h2 {
+    margin-bottom: 2rem;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+/* Recipe Cards */
+.recipe-card {
+    position: relative;
+    padding: 1.8rem;
+    border-left: 4px solid var(--brand-primary);
+}
+
+.recipe-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    color: var(--text-main);
+    margin-bottom: 1rem;
+}
+
+.recipe-card .ingredients {
+    font-size: 0.85rem;
+    color: var(--brand-primary);
+    font-weight: 600;
+    margin-bottom: 1rem;
+    background: rgba(255, 95, 109, 0.08);
+    padding: 0.5rem 1rem;
+    border-radius: 50px;
+    display: inline-block;
+}
+
+.recipe-card .steps {
+    font-size: 0.95rem;
+    color: var(--text-soft);
+    margin-bottom: 2rem;
+}
+
+.delete-btn {
+    background: transparent;
+    color: #e74c3c;
+    padding: 0.5rem;
+    font-size: 0.8rem;
+    text-decoration: underline;
+    opacity: 0.6;
+}
+
+.delete-btn:hover {
+    opacity: 1;
+}
+
+/* Animations */
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+#ai-result {
+    margin-top: 2rem;
+    padding: 2rem;
+    background: var(--bg-card);
+    border-radius: var(--radius-md);
+    border: 1px dashed var(--brand-secondary);
+    animation: fadeInUp 0.6s ease;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+pre#raw-suggestion {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    line-height: 1.8;
+}
+
+/* Form Styling */
+.form-group label {
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--text-soft);
+    margin-left: 0.5rem;
+}
